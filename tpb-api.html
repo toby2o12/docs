@@ -815,10 +815,27 @@ body > pre {
 <a id=简历本周数据,上传锁定数据> </a></h2>
 <p></p>
 <h3 id="-34">基本信息</h3>
-<p><strong>Path：</strong> /statistics/thisweek</p>
+<p><strong>Path：</strong> /statistics/resume/uploadlock/{query}</p>
 <p><strong>Method：</strong> GET</p>
 <p><strong>接口描述：</strong></p>
 <h3 id="-35">请求参数</h3>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>today,week,month</td>
+<td>today:今日,week:本周,month:本月</td>
+</tr>
+</tbody>
+</table>
 <h3 id="-36">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
@@ -832,7 +849,7 @@ body > pre {
 <a id=简历评价数与推荐数> </a></h2>
 <p></p>
 <h3 id="-37">基本信息</h3>
-<p><strong>Path：</strong> /resume/statistics/recommend/{query}</p>
+<p><strong>Path：</strong> /statistics/evaluateandrecommend/{query}</p>
 <p><strong>Method：</strong> POST</p>
 <p><strong>接口描述：</strong></p>
 <h3 id="-38">请求参数</h3>
