@@ -367,7 +367,8 @@ body > pre {
         <div class="g-doc">
           <div class="table-of-contents"><ul><li><a href="#u7b80u5386">简历</a><ul><li><a href="#u5220u9664u7b80u53860a3ca20id3du5220u9664u7b80u53863e203ca3e">删除简历
 <a id=删除简历> </a></a></li><li><a href="#u53bbu9664u5165u804cu6807u8bc60a3ca20id3du53bbu9664u5165u804cu6807u8bc63e203ca3e">去除入职标识
-<a id=去除入职标识> </a></a></li><li><a href="#u7b80u5386u5217u88680a3ca20id3du7b80u5386u5217u88683e203ca3e">简历列表
+<a id=去除入职标识> </a></a></li><li><a href="#u6062u590du7b80u53860a3ca20id3du6062u590du7b80u53863e203ca3e">恢复简历
+<a id=恢复简历> </a></a></li><li><a href="#u7b80u5386u5217u88680a3ca20id3du7b80u5386u5217u88683e203ca3e">简历列表
 <a id=简历列表> </a></a></li><li><a href="#u91cau653eu7b80u53860a3ca20id3du91cau653eu7b80u53863e203ca3e">释放简历
 <a id=释放简历> </a></a></li></ul></li><li><a href="#u7edfu8ba1">统计</a><ul><li><a href="#u7b80u5386u4e0au4f20u7edfu8ba128u6309u6708290a3ca20id3du7b80u5386u4e0au4f20u7edfu8ba128u6309u6708293e203ca3e">简历上传统计(按月)
 <a id=简历上传统计(按月)> </a></a></li><li><a href="#u5165u804c26u79bbu804cu7edfu8ba10a3ca20id3du5165u804c26u79bbu804cu7edfu8ba13e203ca3e">入职&离职统计
@@ -488,11 +489,11 @@ body > pre {
   </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">错误码</span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> errmsg</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">错误消息</span></td><td key=5></td></tr>
                </tbody>
               </table>
-<h2 id="u7b80u5386u5217u88680a3ca20id3du7b80u5386u5217u88683e203ca3e">简历列表
-<a id=简历列表> </a></h2>
+<h2 id="u6062u590du7b80u53860a3ca20id3du6062u590du7b80u53863e203ca3e">恢复简历
+<a id=恢复简历> </a></h2>
 <p></p>
 <h3 id="-7">基本信息</h3>
-<p><strong>Path：</strong> /resume/search</p>
+<p><strong>Path：</strong> /resume/recovery/{id:string}</p>
 <p><strong>Method：</strong> POST</p>
 <p><strong>接口描述：</strong></p>
 <h3 id="-8">请求参数</h3>
@@ -510,36 +511,44 @@ body > pre {
 <tbody>
 <tr>
 <td>Content-Type</td>
-<td>application/json</td>
+<td>application/x-www-form-urlencoded</td>
 <td>是</td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Body</strong></p>
+<p><strong>路径参数</strong></p>
 <table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">姓名</span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> phone</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">手机号</span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> email</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">邮箱</span></td><td key=5></td></tr><tr key=0-3><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> size</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">每页条数,最大50</span></td><td key=5></td></tr><tr key=0-4><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> page</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">页数</span></td><td key=5></td></tr>
-               </tbody>
-              </table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id:string</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="-9">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
       <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
     </tr>
-  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>0</span></p></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> errmsg</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-0><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> total</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">总数</span></td><td key=5><p key=0><span style="font-weight: '700'">最大值: </span><span>1000</span></p><p key=1><span style="font-weight: '700'">最小值: </span><span>0</span></p></td></tr><tr key=0-2-1><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> list</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">列表</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr><tr key=0-2-1-0><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> name</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">姓名</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>@word</span></p></td></tr><tr key=0-2-1-1><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> phone</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">手机号</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>18610203211</span></p></td></tr><tr key=0-2-1-2><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> email</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">邮箱</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>@email</span></p></td></tr><tr key=0-2-1-3><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> guid</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">简历ID</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>@guid</span></p></td></tr><tr key=0-2-1-4><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> school_name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">学校名称</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>@word</span></p></td></tr><tr key=0-2-1-5><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> work_year</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">工作年限</span></td><td key=5><p key=0><span style="font-weight: '700'">最大值: </span><span>10</span></p><p key=1><span style="font-weight: '700'">最小值: </span><span>0</span></p></td></tr><tr key=0-2-1-6><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> is_entry</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3>1</td><td key=4><span style="white-space: pre-wrap">是否已入职</span></td><td key=5><p key=0><span style="font-weight: '700'">最大值: </span><span>1</span></p><p key=1><span style="font-weight: '700'">最小值: </span><span>0</span></p></td></tr><tr key=0-2-1-7><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> is_delete</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">是否删除</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>0</span></p></td></tr><tr key=0-2-1-8><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> status</span></td><td key=1><span>object</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-1-8-0><td key=0><span style="padding-left: 60px"><span style="color: #8c8a8a">├─</span> user_name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">锁定人账号</span></td><td key=5></td></tr><tr key=0-2-1-8-1><td key=0><span style="padding-left: 60px"><span style="color: #8c8a8a">├─</span> display_name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">锁定人姓名</span></td><td key=5></td></tr><tr key=0-2-1-8-2><td key=0><span style="padding-left: 60px"><span style="color: #8c8a8a">├─</span> text</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3>锁定</td><td key=4><span style="white-space: pre-wrap">状态</span></td><td key=5><p key=2><span style="font-weight: '700'">枚举: </span><span>锁定,待初试,面试通过</span></p></td></tr><tr key=0-2-1-8-3><td key=0><span style="padding-left: 60px"><span style="color: #8c8a8a">├─</span> release_time</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">释放时间</span></td><td key=5><p key=4><span style="font-weight: '700'">format: </span><span>date-time</span></p><p key=5><span style="font-weight: '700'">undefined: </span><span>@datetime</span></p></td></tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> errmsg</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
                </tbody>
               </table>
-<h2 id="u91cau653eu7b80u53860a3ca20id3du91cau653eu7b80u53863e203ca3e">释放简历
-<a id=释放简历> </a></h2>
+<h2 id="u7b80u5386u5217u88680a3ca20id3du7b80u5386u5217u88683e203ca3e">简历列表
+<a id=简历列表> </a></h2>
 <p></p>
 <h3 id="-10">基本信息</h3>
-<p><strong>Path：</strong> /resume/release</p>
+<p><strong>Path：</strong> /resume/search</p>
 <p><strong>Method：</strong> POST</p>
 <p><strong>接口描述：</strong></p>
 <h3 id="-11">请求参数</h3>
@@ -570,10 +579,57 @@ body > pre {
     <tr>
       <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
     </tr>
-  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> resume_id</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">简历ID</span></td><td key=5></td></tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">姓名</span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> phone</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">手机号</span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> email</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">邮箱</span></td><td key=5></td></tr><tr key=0-3><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> size</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">每页条数,最大50</span></td><td key=5></td></tr><tr key=0-4><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> page</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">页数,从0开始</span></td><td key=5></td></tr>
                </tbody>
               </table>
 <h3 id="-12">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>0</span></p></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> errmsg</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-0><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> total</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">总数</span></td><td key=5><p key=0><span style="font-weight: '700'">最大值: </span><span>1000</span></p><p key=1><span style="font-weight: '700'">最小值: </span><span>0</span></p></td></tr><tr key=0-2-1><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> list</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">列表</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr><tr key=0-2-1-0><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> name</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">姓名</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>@word</span></p></td></tr><tr key=0-2-1-1><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> phone</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">手机号</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>18610203211</span></p></td></tr><tr key=0-2-1-2><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> email</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">邮箱</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>@email</span></p></td></tr><tr key=0-2-1-3><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> guid</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">简历ID</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>@guid</span></p></td></tr><tr key=0-2-1-4><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> school_name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">学校名称</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>@word</span></p></td></tr><tr key=0-2-1-5><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> work_year</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">工作年限</span></td><td key=5><p key=0><span style="font-weight: '700'">最大值: </span><span>10</span></p><p key=1><span style="font-weight: '700'">最小值: </span><span>0</span></p></td></tr><tr key=0-2-1-6><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> is_entry</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3>1</td><td key=4><span style="white-space: pre-wrap">是否已入职</span></td><td key=5><p key=0><span style="font-weight: '700'">最大值: </span><span>1</span></p><p key=1><span style="font-weight: '700'">最小值: </span><span>0</span></p></td></tr><tr key=0-2-1-7><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> is_delete</span></td><td key=1><span>integer</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">是否删除</span></td><td key=5><p key=5><span style="font-weight: '700'">undefined: </span><span>0</span></p></td></tr><tr key=0-2-1-8><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> status</span></td><td key=1><span>object</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-1-8-0><td key=0><span style="padding-left: 60px"><span style="color: #8c8a8a">├─</span> user_name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">锁定人账号</span></td><td key=5></td></tr><tr key=0-2-1-8-1><td key=0><span style="padding-left: 60px"><span style="color: #8c8a8a">├─</span> display_name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">锁定人姓名</span></td><td key=5></td></tr><tr key=0-2-1-8-2><td key=0><span style="padding-left: 60px"><span style="color: #8c8a8a">├─</span> text</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3>锁定</td><td key=4><span style="white-space: pre-wrap">状态</span></td><td key=5><p key=2><span style="font-weight: '700'">枚举: </span><span>锁定,待初试,面试通过</span></p></td></tr><tr key=0-2-1-8-3><td key=0><span style="padding-left: 60px"><span style="color: #8c8a8a">├─</span> release_time</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">释放时间</span></td><td key=5><p key=4><span style="font-weight: '700'">format: </span><span>date-time</span></p><p key=5><span style="font-weight: '700'">undefined: </span><span>@datetime</span></p></td></tr><tr key=0-2-1-9><td key=0><span style="padding-left: 40px"><span style="color: #8c8a8a">├─</span> update_time_text</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">简历更新时间</span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h2 id="u91cau653eu7b80u53860a3ca20id3du91cau653eu7b80u53863e203ca3e">释放简历
+<a id=释放简历> </a></h2>
+<p></p>
+<h3 id="-13">基本信息</h3>
+<p><strong>Path：</strong> /resume/release</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<h3 id="-14">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> resume_id</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">简历ID</span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h3 id="-15">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
@@ -587,12 +643,12 @@ body > pre {
 <h2 id="u7b80u5386u4e0au4f20u7edfu8ba128u6309u6708290a3ca20id3du7b80u5386u4e0au4f20u7edfu8ba128u6309u6708293e203ca3e">简历上传统计(按月)
 <a id=简历上传统计(按月)> </a></h2>
 <p></p>
-<h3 id="-13">基本信息</h3>
+<h3 id="-16">基本信息</h3>
 <p><strong>Path：</strong> /statistics/upload/groupbymonth</p>
 <p><strong>Method：</strong> GET</p>
 <p><strong>接口描述：</strong></p>
-<h3 id="-14">请求参数</h3>
-<h3 id="-15">返回数据</h3>
+<h3 id="-17">请求参数</h3>
+<h3 id="-18">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
@@ -604,12 +660,12 @@ body > pre {
 <h2 id="u5165u804c26u79bbu804cu7edfu8ba10a3ca20id3du5165u804c26u79bbu804cu7edfu8ba13e203ca3e">入职&离职统计
 <a id=入职&离职统计> </a></h2>
 <p></p>
-<h3 id="-16">基本信息</h3>
+<h3 id="-19">基本信息</h3>
 <p><strong>Path：</strong> /statistics/inout/groupbymonth</p>
 <p><strong>Method：</strong> POST</p>
 <p><strong>接口描述：</strong></p>
 <p>按月份统计</p>
-<h3 id="-17">请求参数</h3>
+<h3 id="-20">请求参数</h3>
 <p><strong>Headers</strong></p>
 <table>
 <thead>
@@ -631,7 +687,7 @@ body > pre {
 </tr>
 </tbody>
 </table>
-<h3 id="-18">返回数据</h3>
+<h3 id="-21">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
@@ -643,45 +699,11 @@ body > pre {
 <h2 id="u7a7au95f2u8d44u6e90-u6d41u7a0bu7edfu8ba10a3ca20id3du7a7au95f2u8d44u6e90-u6d41u7a0bu7edfu8ba13e203ca3e">空闲资源-流程统计
 <a id=空闲资源-流程统计> </a></h2>
 <p></p>
-<h3 id="-19">基本信息</h3>
+<h3 id="-22">基本信息</h3>
 <p><strong>Path：</strong> /statistics/idle/flowcount/{query}</p>
 <p><strong>Method：</strong> GET</p>
 <p><strong>接口描述：</strong></p>
 <p><span class="colour" style="color: rgb(165, 122, 76);">流程数按时间,today:今日,week:本周,month:本月</span></p>
-<h3 id="-20">请求参数</h3>
-<p><strong>路径参数</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数名称</th>
-<th>示例</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>query</td>
-<td>today</td>
-<td>today:今日,week:本周,month:本月</td>
-</tr>
-</tbody>
-</table>
-<h3 id="-21">返回数据</h3>
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1-0><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> curstate_count</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">流程数</span></td><td key=5></td></tr>
-               </tbody>
-              </table>
-<h2 id="u7a7au95f2u8d44u6e90-u9501u5b9au6d41u7a0bu7edfu8ba10a3ca20id3du7a7au95f2u8d44u6e90-u9501u5b9au6d41u7a0bu7edfu8ba13e203ca3e">空闲资源-锁定流程统计
-<a id=空闲资源-锁定流程统计> </a></h2>
-<p></p>
-<h3 id="-22">基本信息</h3>
-<p><strong>Path：</strong> /statistics/idle/uploadlock/{query}</p>
-<p><strong>Method：</strong> GET</p>
-<p><strong>接口描述：</strong></p>
 <h3 id="-23">请求参数</h3>
 <p><strong>路径参数</strong></p>
 <table>
@@ -706,17 +728,16 @@ body > pre {
     <tr>
       <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
     </tr>
-  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1-0><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> week_lock_count</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">锁定数</span></td><td key=5></td></tr><tr key=0-1-1><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> week_curstate_count</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">流程数</span></td><td key=5></td></tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1-0><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> curstate_count</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">流程数</span></td><td key=5></td></tr>
                </tbody>
               </table>
-<h2 id="u7a7au95f2u8d44u6e90-u9501u5b9au7edfu8ba10a3ca20id3du7a7au95f2u8d44u6e90-u9501u5b9au7edfu8ba13e203ca3e">空闲资源-锁定统计
-<a id=空闲资源-锁定统计> </a></h2>
+<h2 id="u7a7au95f2u8d44u6e90-u9501u5b9au6d41u7a0bu7edfu8ba10a3ca20id3du7a7au95f2u8d44u6e90-u9501u5b9au6d41u7a0bu7edfu8ba13e203ca3e">空闲资源-锁定流程统计
+<a id=空闲资源-锁定流程统计> </a></h2>
 <p></p>
 <h3 id="-25">基本信息</h3>
-<p><strong>Path：</strong> /statistics/idle/lock/{query}</p>
+<p><strong>Path：</strong> /statistics/idle/uploadlock/{query}</p>
 <p><strong>Method：</strong> GET</p>
 <p><strong>接口描述：</strong></p>
-<p><span class="colour" style="color: rgb(165, 122, 76);">空闲系统锁定统计</span></p>
 <h3 id="-26">请求参数</h3>
 <p><strong>路径参数</strong></p>
 <table>
@@ -741,17 +762,52 @@ body > pre {
     <tr>
       <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
     </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1-0><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> week_lock_count</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">锁定数</span></td><td key=5></td></tr><tr key=0-1-1><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> week_curstate_count</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">流程数</span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h2 id="u7a7au95f2u8d44u6e90-u9501u5b9au7edfu8ba10a3ca20id3du7a7au95f2u8d44u6e90-u9501u5b9au7edfu8ba13e203ca3e">空闲资源-锁定统计
+<a id=空闲资源-锁定统计> </a></h2>
+<p></p>
+<h3 id="-28">基本信息</h3>
+<p><strong>Path：</strong> /statistics/idle/lock/{query}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<p><span class="colour" style="color: rgb(165, 122, 76);">空闲系统锁定统计</span></p>
+<h3 id="-29">请求参数</h3>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>today</td>
+<td>today:今日,week:本周,month:本月</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-30">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
   </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> msg</span></td><td key=1><span>null</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-0><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> today_lock_count</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">锁定数</span></td><td key=5></td></tr>
                </tbody>
               </table>
 <h2 id="u7a7au95f2u8d44u6e90u7edfu8ba1-u8d44u6e90u7edfu8ba10a3ca20id3du7a7au95f2u8d44u6e90u7edfu8ba1-u8d44u6e90u7edfu8ba13e203ca3e">空闲资源统计-资源统计
 <a id=空闲资源统计-资源统计> </a></h2>
 <p></p>
-<h3 id="-28">基本信息</h3>
+<h3 id="-31">基本信息</h3>
 <p><strong>Path：</strong> /statistics/idle/dash/{today}</p>
 <p><strong>Method：</strong> GET</p>
 <p><strong>接口描述：</strong></p>
-<h3 id="-29">请求参数</h3>
+<h3 id="-32">请求参数</h3>
 <p><strong>路径参数</strong></p>
 <table>
 <thead>
@@ -769,7 +825,7 @@ body > pre {
 </tr>
 </tbody>
 </table>
-<h3 id="-30">返回数据</h3>
+<h3 id="-33">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
@@ -781,11 +837,11 @@ body > pre {
 <h2 id="u5165u804c26u79bbu804cu7edfu8ba128u6309u6761u4ef6290a3ca20id3du5165u804c26u79bbu804cu7edfu8ba128u6309u6761u4ef6293e203ca3e">入职&离职统计(按条件)
 <a id=入职&离职统计(按条件)> </a></h2>
 <p></p>
-<h3 id="-31">基本信息</h3>
+<h3 id="-34">基本信息</h3>
 <p><strong>Path：</strong> /statistics/inout/{query}</p>
 <p><strong>Method：</strong> GET</p>
 <p><strong>接口描述：</strong></p>
-<h3 id="-32">请求参数</h3>
+<h3 id="-35">请求参数</h3>
 <p><strong>路径参数</strong></p>
 <table>
 <thead>
@@ -803,7 +859,7 @@ body > pre {
 </tr>
 </tbody>
 </table>
-<h3 id="-33">返回数据</h3>
+<h3 id="-36">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
@@ -815,11 +871,11 @@ body > pre {
 <h2 id="u7b80u5386u672cu5468u6570u636e2cu4e0au4f20u9501u5b9au6570u636e0a3ca20id3du7b80u5386u672cu5468u6570u636e2cu4e0au4f20u9501u5b9au6570u636e3e203ca3e">简历本周数据,上传锁定数据
 <a id=简历本周数据,上传锁定数据> </a></h2>
 <p></p>
-<h3 id="-34">基本信息</h3>
+<h3 id="-37">基本信息</h3>
 <p><strong>Path：</strong> /statistics/resume/uploadlock/{query}</p>
 <p><strong>Method：</strong> GET</p>
 <p><strong>接口描述：</strong></p>
-<h3 id="-35">请求参数</h3>
+<h3 id="-38">请求参数</h3>
 <p><strong>路径参数</strong></p>
 <table>
 <thead>
@@ -837,7 +893,7 @@ body > pre {
 </tr>
 </tbody>
 </table>
-<h3 id="-36">返回数据</h3>
+<h3 id="-39">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
@@ -849,11 +905,11 @@ body > pre {
 <h2 id="u7b80u5386u8bc4u4ef7u6570u4e0eu63a8u8350u65700a3ca20id3du7b80u5386u8bc4u4ef7u6570u4e0eu63a8u8350u65703e203ca3e">简历评价数与推荐数
 <a id=简历评价数与推荐数> </a></h2>
 <p></p>
-<h3 id="-37">基本信息</h3>
+<h3 id="-40">基本信息</h3>
 <p><strong>Path：</strong> /statistics/evaluateandrecommend/{query}</p>
 <p><strong>Method：</strong> POST</p>
 <p><strong>接口描述：</strong></p>
-<h3 id="-38">请求参数</h3>
+<h3 id="-41">请求参数</h3>
 <p><strong>Headers</strong></p>
 <table>
 <thead>
@@ -892,7 +948,7 @@ body > pre {
 </tr>
 </tbody>
 </table>
-<h3 id="-39">返回数据</h3>
+<h3 id="-42">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
@@ -904,14 +960,14 @@ body > pre {
 <h2 id="u804cu4f4du7edfu8ba10a3ca20id3du804cu4f4du7edfu8ba13e203ca3e">职位统计
 <a id=职位统计> </a></h2>
 <p></p>
-<h3 id="-40">基本信息</h3>
+<h3 id="-43">基本信息</h3>
 <p><strong>Path：</strong> /job/statistics/{query}</p>
 <p><strong>Method：</strong> GET</p>
 <p><strong>接口描述：</strong></p>
 <p>job_count:时间段内职位数<br>
 job_total:职位总数<br>
 receive_count:领取数</p>
-<h3 id="-41">请求参数</h3>
+<h3 id="-44">请求参数</h3>
 <p><strong>路径参数</strong></p>
 <table>
 <thead>
@@ -954,7 +1010,7 @@ receive_count:领取数</p>
 </tr>
 </tbody>
 </table>
-<h3 id="-42">返回数据</h3>
+<h3 id="-45">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
@@ -966,7 +1022,7 @@ receive_count:领取数</p>
 <h2 id="u8d2du4e70u7edfu8ba1-u641cu7d220a3ca20id3du8d2du4e70u7edfu8ba1-u641cu7d223e203ca3e">购买统计-搜索
 <a id=购买统计-搜索> </a></h2>
 <p></p>
-<h3 id="-43">基本信息</h3>
+<h3 id="-46">基本信息</h3>
 <p><strong>Path：</strong> /statistics/resume/buy/search/{query}</p>
 <p><strong>Method：</strong> POST</p>
 <p><strong>接口描述：</strong></p>
@@ -975,7 +1031,7 @@ buy_total:购买总数<br>
 buy_success_ec:成功数<br>
 buy_failed:失败数<br>
 buy_user_count:用户数</p>
-<h3 id="-44">请求参数</h3>
+<h3 id="-47">请求参数</h3>
 <p><strong>Headers</strong></p>
 <table>
 <thead>
@@ -1023,7 +1079,7 @@ buy_user_count:用户数</p>
   </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> start_time</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">开始时间</span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> end_time</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">截止时间</span></td><td key=5></td></tr>
                </tbody>
               </table>
-<h3 id="-45">返回数据</h3>
+<h3 id="-48">返回数据</h3>
 <table>
   <thead class="ant-table-thead">
     <tr>
@@ -1035,12 +1091,12 @@ buy_user_count:用户数</p>
 <h2 id="u9762u8bd5u8fc7u7a0bu7edfu8ba10a3ca20id3du9762u8bd5u8fc7u7a0bu7edfu8ba13e203ca3e">面试过程统计
 <a id=面试过程统计> </a></h2>
 <p></p>
-<h3 id="-46">基本信息</h3>
+<h3 id="-49">基本信息</h3>
 <p><strong>Path：</strong> /resume/statistics/flow</p>
 <p><strong>Method：</strong> GET</p>
 <p><strong>接口描述：</strong><br>
 undefined</p>
-<h3 id="-47">请求参数</h3>
+<h3 id="-50">请求参数</h3>
 
             <footer class="m-footer">
               <p>Build by <a href="https://ymfe.org/">YMFE</a>.</p>
