@@ -511,7 +511,7 @@ body > pre {
 <tbody>
 <tr>
 <td>Content-Type</td>
-<td>application/x-www-form-urlencoded</td>
+<td>application/json</td>
 <td>是</td>
 <td></td>
 <td></td>
@@ -595,7 +595,7 @@ body > pre {
 <a id=释放简历> </a></h2>
 <p></p>
 <h3 id="-13">基本信息</h3>
-<p><strong>Path：</strong> /resume/release</p>
+<p><strong>Path：</strong> /resume/admin/release/{resume_id}</p>
 <p><strong>Method：</strong> POST</p>
 <p><strong>接口描述：</strong></p>
 <h3 id="-14">请求参数</h3>
@@ -617,6 +617,23 @@ body > pre {
 <td>是</td>
 <td></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resume_id</td>
+<td>b839e799-aef7-4196-8e5e-4a11e5ff8191</td>
+<td>简历ID</td>
 </tr>
 </tbody>
 </table>
